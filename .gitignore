@@ -1,0 +1,6 @@
+.env
+sarcasm_results
+sentiment_results
+sentiment_results_large
+.venv
+__pycache__/
