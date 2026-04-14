@@ -1,21 +1,30 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+<<<<<<< HEAD
 from cores import DTS2, DTS3, get_baseline_sentiment, get_baseline_sarcasm, get_baseline_emotion
 from dotenv import load_dotenv
 import os
 from groq import Groq
 
 load_dotenv()
+=======
+from cores import DTS2
+>>>>>>> a647d7aaf5f3d5d02f30c6757fab5c49c1b80628
 
 app = FastAPI(title="DTS² Backend API")
 
 # load a trained model
 print("📦 Loading trained DTS² model...")  
+<<<<<<< HEAD
 model_dts2 = DTS2()
 client = Groq(api_key=os.environ.get("YOUR_API_KEY_HERE"))
 model_dts3 = DTS3(client)
 print("✅ Models loaded successfully.")
+=======
+model = DTS2()
+print("✅ Model loaded successfully.")
+>>>>>>> a647d7aaf5f3d5d02f30c6757fab5c49c1b80628
 
 # Allow frontend (Streamlit) to call backend
 app.add_middleware(
@@ -36,6 +45,7 @@ async def analyze(input: TextInput):
     if not text:
         return {"error": "Empty input text"}
     
+<<<<<<< HEAD
     # Call DTS3 (HIGH QUALITY - 80-95% confidence)
     dts3_result = model_dts3.call_model(text)
     dts3_result["model_score"] = dts3_result.get("confidence", 0.87)
@@ -68,3 +78,7 @@ async def analyze(input: TextInput):
         "dts2": dts2_result,
         "baseline": baseline_result
     }
+=======
+    # Call the hidden LLM internally
+    return model.call_model(text)
+>>>>>>> a647d7aaf5f3d5d02f30c6757fab5c49c1b80628

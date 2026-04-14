@@ -10,4 +10,7 @@ seaborn==0.13.2
 geopandas==1.1.1
 shapely==2.1.2
 accelerate==0.33.0
+<<<<<<< HEAD
 python-dotenv==1.0.0
+=======
+>>>>>>> a647d7aaf5f3d5d02f30c6757fab5c49c1b80628
